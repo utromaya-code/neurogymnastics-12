@@ -5,7 +5,9 @@
   const selectors = [
     '.intro-content > h2', '.intro-columns', '.intro-quote',
     '.split-heading', '.direction-card', '.directions-note',
+    '.daily-heading', '.daily-steps > article',
     '.sequence-heading', '.sequence-list > div',
+    '.roots-visual', '.roots-copy',
     '.program-list > details', '.program-aside',
     '.outcome-grid > div:first-child', '.outcome-list > div',
     '.author-image', '.author-copy',
