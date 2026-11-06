@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap&subset=cyrillic" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <script src="motion.js" defer></script>
 </head>
 <body>
   <div class="preview-bar">Тестовая версия страницы <span aria-hidden="true">✳</span> Предварительный старт — 1 декабря 2026</div>
@@ -37,13 +39,19 @@
         </div>
         <div class="hero-art" aria-hidden="true">
           <div class="art-glow"></div>
+          <div class="particle-field"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <svg class="orbit-art" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs><linearGradient id="gold" x1="80" y1="52" x2="501" y2="558" gradientUnits="userSpaceOnUse"><stop stop-color="#F5E1A2"/><stop offset=".48" stop-color="#BD974C"/><stop offset="1" stop-color="#F2DC9D"/></linearGradient><radialGradient id="halo"><stop stop-color="#DCC080" stop-opacity=".21"/><stop offset="1" stop-color="#DCC080" stop-opacity="0"/></radialGradient></defs>
             <circle cx="300" cy="300" r="240" fill="url(#halo)"/>
-            <g stroke="url(#gold)" opacity=".56"><circle cx="300" cy="300" r="185"/><circle cx="300" cy="300" r="220" opacity=".55"/><ellipse cx="300" cy="300" rx="246" ry="104" transform="rotate(-38 300 300)"/><ellipse cx="300" cy="300" rx="246" ry="104" transform="rotate(38 300 300)"/><ellipse cx="300" cy="300" rx="245" ry="125" transform="rotate(90 300 300)" opacity=".65"/></g>
+            <g stroke="url(#gold)" opacity=".62">
+              <circle cx="300" cy="300" r="185"/><circle cx="300" cy="300" r="220" opacity=".55"/>
+              <g class="orbit-path orbit-path-one"><g transform="rotate(-38 300 300)"><ellipse cx="300" cy="300" rx="246" ry="104"/><circle class="orbit-dot" cx="546" cy="300" r="4"/></g></g>
+              <g class="orbit-path orbit-path-two"><g transform="rotate(38 300 300)"><ellipse cx="300" cy="300" rx="246" ry="104"/><circle class="orbit-dot" cx="54" cy="300" r="3.5"/></g></g>
+              <g class="orbit-path orbit-path-three"><g transform="rotate(90 300 300)"><ellipse cx="300" cy="300" rx="245" ry="125" opacity=".65"/><circle class="orbit-dot" cx="545" cy="300" r="3"/></g></g>
+            </g>
             <g stroke="url(#gold)" stroke-width="1.1" opacity=".9"><path d="M298 162c-42 0-69 30-69 70 0 28 11 45 23 60 11 14 13 25 13 39v12m70 0v-12c0-14 3-25 13-39 12-15 23-32 23-60 0-40-30-70-73-70Z"/><path d="M253 282c22-13 35-30 47-57 12 27 25 44 47 57M265 343c-36 4-67 22-82 56m152-56c36 4 67 22 82 56M183 399c33 18 75 28 117 28 42 0 84-10 117-28M244 226c19 7 37 5 56-2 19 7 37 9 56 2M300 225v119"/><path d="M229 239c-20-3-30-18-25-32 4-13 20-19 33-14m134 46c20-3 30-18 25-32-4-13-20-19-33-14" opacity=".55"/></g>
             <circle cx="300" cy="299" r="144" stroke="url(#gold)" opacity=".22" stroke-dasharray="2 8"/>
-            <g fill="#E8D099"><circle cx="300" cy="80" r="3"/><circle cx="123" cy="412" r="3"/><circle cx="472" cy="207" r="3"/><circle cx="425" cy="450" r="2.5"/><path d="M106 196l3 9 9 3-9 3-3 9-3-9-9-3 9-3 3-9Zm383 171 2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></g>
+            <g class="orbit-stars" fill="#E8D099"><circle cx="300" cy="80" r="3"/><circle cx="123" cy="412" r="3"/><circle cx="472" cy="207" r="3"/><circle cx="425" cy="450" r="2.5"/><path d="M106 196l3 9 9 3-9 3-3 9-3-9-9-3 9-3 3-9Zm383 171 2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z"/></g>
           </svg>
           <div class="art-label art-label-top"><span>ОДНА</span><strong>практика</strong></div>
           <div class="art-label art-label-bottom"><span>РАЗНЫЕ</span><strong>состояния</strong></div>

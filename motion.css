@@ -1,0 +1,140 @@
+/* Atmospheric movement for the Neurohacking universe. */
+.preview-bar { position: relative; overflow: hidden; isolation: isolate; }
+.preview-bar::after {
+  content: "";
+  position: absolute;
+  inset: -100% auto -100% -25%;
+  width: 20%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 250, 225, .5), transparent);
+  transform: translateX(-100%) skewX(-25deg);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero h1 em {
+    background: linear-gradient(100deg, #b89550, #f8e9b5, #bf9b56, #f5dfa1);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 71% 48%, rgba(174, 141, 89, .16), transparent 35%),
+    radial-gradient(ellipse at 35% 75%, rgba(112, 91, 132, .14), transparent 39%);
+}
+.hero-copy, .hero-index { position: relative; z-index: 1; }
+.hero-art { isolation: isolate; }
+.art-glow {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 204, 135, .25), rgba(162, 122, 75, .08) 42%, transparent 70%);
+}
+.orbit-path { transform-box: view-box; transform-origin: 50% 50%; }
+.orbit-dot { fill: #f8e3a3; stroke: none; filter: drop-shadow(0 0 6px #e8c26e); }
+.orbit-stars { transform-box: view-box; transform-origin: center; }
+.particle-field { position: absolute; inset: 2%; pointer-events: none; z-index: 1; }
+.particle-field i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f1dda9;
+  box-shadow: 0 0 8px 2px rgba(229, 192, 112, .38);
+  opacity: .45;
+}
+.particle-field i:nth-child(1) { left: 12%; top: 23%; }
+.particle-field i:nth-child(2) { left: 27%; top: 9%; }
+.particle-field i:nth-child(3) { left: 61%; top: 8%; }
+.particle-field i:nth-child(4) { left: 82%; top: 21%; }
+.particle-field i:nth-child(5) { left: 96%; top: 43%; }
+.particle-field i:nth-child(6) { left: 83%; top: 70%; }
+.particle-field i:nth-child(7) { left: 71%; top: 91%; }
+.particle-field i:nth-child(8) { left: 38%; top: 88%; }
+.particle-field i:nth-child(9) { left: 15%; top: 72%; }
+.particle-field i:nth-child(10) { left: 4%; top: 48%; }
+.particle-field i:nth-child(11) { left: 31%; top: 30%; }
+.particle-field i:nth-child(12) { left: 72%; top: 44%; }
+.button-gold { position: relative; isolation: isolate; overflow: hidden; }
+.button-gold::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -90%;
+  width: 45%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 244, .72), transparent);
+  transform: translateX(-100%) skewX(-20deg);
+}
+.final-orbit::before, .final-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 14% -8%;
+  border: 1px solid rgba(217, 188, 121, .18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.final-orbit::before { transform: rotate(34deg); }
+.final-orbit::after { transform: rotate(-34deg); }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .direction-card { transition: background-color .45s ease, box-shadow .45s ease; }
+  .direction-card:hover { background: #fffdf7; box-shadow: inset 0 0 45px rgba(218, 191, 130, .17); }
+  .card-symbol { transition: transform .7s ease, color .7s ease; }
+  .direction-card:hover .card-symbol { transform: rotate(60deg) scale(1.12); color: #987238; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .preview-bar::after { animation: banner-glint 9s ease-in-out infinite; }
+  .hero h1 em { animation: title-shimmer 8s ease-in-out infinite alternate; }
+  .hero::before { animation: atmosphere 15s ease-in-out infinite alternate; }
+  .art-glow { animation: glow-breathe 7s ease-in-out infinite; }
+  .orbit-path-one { animation: orbit-turn 50s linear infinite; }
+  .orbit-path-two { animation: orbit-turn 68s linear infinite reverse; }
+  .orbit-path-three { animation: orbit-turn 82s linear infinite; }
+  .orbit-stars { animation: stars-breathe 5.5s ease-in-out infinite; }
+  .particle-field i { animation: particle-breathe 4.8s ease-in-out infinite; }
+  .particle-field i:nth-child(3n) { animation-delay: -1.6s; animation-duration: 5.6s; }
+  .particle-field i:nth-child(3n + 1) { animation-delay: -3.2s; animation-duration: 6.4s; }
+  .button-gold::after { animation: gold-sheen 7s ease-in-out infinite; }
+  .final-orbit::before { animation: final-orbit-forward 55s linear infinite; }
+  .final-orbit::after { animation: final-orbit-backward 70s linear infinite; }
+  .hero-main > .eyebrow, .hero-main > h1, .hero-main > .hero-lead,
+  .hero-main > .hero-description, .hero-main > .hero-actions, .hero-main > .hero-meta {
+    animation: hero-arrive .9s cubic-bezier(.22, .7, .25, 1) both;
+  }
+  .hero-main > h1 { animation-delay: .08s; }
+  .hero-main > .hero-lead { animation-delay: .16s; }
+  .hero-main > .hero-description { animation-delay: .22s; }
+  .hero-main > .hero-actions { animation-delay: .28s; }
+  .hero-main > .hero-meta { animation-delay: .34s; }
+  .hero-art { animation: art-arrive 1.3s ease-out both; }
+  .motion-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .85s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms),
+                transform .85s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms);
+  }
+  .motion-reveal.is-visible, .motion-reveal:focus-within { opacity: 1; transform: none; }
+}
+@keyframes banner-glint { 0%, 25% { transform: translateX(-100%) skewX(-25deg); } 65%, 100% { transform: translateX(800%) skewX(-25deg); } }
+@keyframes title-shimmer { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@keyframes orbit-turn { to { transform: rotate(360deg); } }
+@keyframes atmosphere { from { transform: translate3d(-1.5%, -1%, 0) scale(1); opacity: .7; } to { transform: translate3d(2%, 1%, 0) scale(1.06); opacity: 1; } }
+@keyframes glow-breathe { 0%, 100% { transform: scale(.91); opacity: .65; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes stars-breathe { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes particle-breathe { 0%, 100% { opacity: .18; transform: scale(.7); } 50% { opacity: .9; transform: scale(1.55); } }
+@keyframes gold-sheen { 0%, 35% { transform: translateX(-100%) skewX(-20deg); } 65%, 100% { transform: translateX(600%) skewX(-20deg); } }
+@keyframes final-orbit-forward { from { transform: rotate(34deg); } to { transform: rotate(394deg); } }
+@keyframes final-orbit-backward { from { transform: rotate(-34deg); } to { transform: rotate(-394deg); } }
+@keyframes hero-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes art-arrive { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: scale(1); } }
